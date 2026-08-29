@@ -18,10 +18,10 @@ const CO = {
   berdiri: "2015",
   kota: "Tangerang, Indonesia",
   alamat: "Rukan Crown No. K18, Greenlake City, Tangerang",
-  maps: "https://maps.google.com/?q=Rukan+Crown+K18+Greenlake+City+Tangerang",
-  email: "halo@monteragroup.id",     // GANTI
-  wa: "https://wa.me/6281234567890", // GANTI
-  ig: "https://instagram.com/montera.group", // GANTI
+  maps: "https://maps.app.goo.gl/mT2yGWuFJr8JXfK76?g_st=aw",
+  email: "vj.1508@gmail.com",     // GANTI
+  wa: "https://wa.me/6281290009626", // GANTI
+  ig: "https://www.instagram.com/prepare_idn/", // GANTI
 };
 
 const VALUES = [
@@ -70,28 +70,28 @@ const BRANDS = [
 
 const EVENTS = [
   {
-    judul: "Learning & Development",
-    isi: "Regular training for every division, from performance marketing to warehouse operations. The company covers the cost, and it happens on work hours.",
-    foto: "", // contoh: "/event/ldp.jpg"
+    judul: "Office Celebrations",
+    isi: "Birthdays and small wins get marked in the middle of the workday. Someone brings food, everyone stops for a while.",
+    foto: "/event/l.jpg",
   },
   {
     judul: "Creating Moments",
-    isi: "Annual trips, gatherings and team celebrations. What people remember about a job is usually not the job itself.",
-    foto: "",
+    isi: "We take the team out of the office for a day on the river. Rafting, and a group photo nobody looks serious in.",
+    foto: "/event/moment.jpg",
   },
   {
-    judul: "Montera Gives",
-    isi: "Regular community work at shelters and around the office. A routine, not a ceremony.",
-    foto: "",
+    judul: "Halloween at the Office",
+    isi: "The dress code goes out the window for a day. Costumes get judged by the loudest reaction, not the biggest budget.",
+    foto: "/event/hallowen.jpg",
   },
   {
-    judul: "Know Me Better",
-    isi: "Cross-division sessions, so the warehouse knows who is behind the ads and the other way around.",
-    foto: "",
+    judul: "Movie Day",
+    isi: "The office closes early and the whole team walks into the cinema together. No agenda, no slides.",
+    foto: "/event/knowme.jpg",
   },
 ];
 
-const GALLERY = ["", "", "", "", "", ""]; // isi path foto, contoh: "/event/1.jpg"
+const GALLERY = ["/event/galery1.jpg", "/event/galery2.jpg", "/event/galery3.jpg", "/event/galery4.jpg", "/event/galery5.jpg", "/event/galery6.jpg"]; // isi path foto, contoh: "/event/1.jpg"
 
 const PEOPLE = [
   {
@@ -99,8 +99,7 @@ const PEOPLE = [
     role: "Founder & CEO",
     foto: "tim/vikram.jpg",                   // contoh: "/tim/vikram.jpg"
     isi: [
-      "Replace this with a short note in their own words — why Montera was built and where it is heading.",
-      "Two or three paragraphs is plenty. Keep it plain, not corporate.",
+      "I believe sustainable growth is built through consistency, dedication, and a strong sense of purpose. At Montera, we continue to learn, adapt, and grow together as a team.",
     ],
   },
   {
@@ -108,41 +107,41 @@ const PEOPLE = [
     role: "Head of Operations",
     foto: "tim/kartini.jpg",
     isi: [
-      "Replace this with a note from the team member — joining, what changed, what they learned.",
+      "Strong growth comes from strong teamwork and a commitment to continuous improvement. I believe in building a working environment where everyone can develop, contribute, and move forward together.",
     ],
   },
   {
     nama: "Adila",
     role: "Marketing & Ads",
     foto: "tim/dila.jpg",
-    isi: ["Replace this paragraph."],
+    isi: ["I focus on creating meaningful connections through effective communication and thoughtful strategies. Understanding our audience allows us to communicate with clarity and purpose."],
   },
   {
     nama: "Rou",
-    role: "Creative & Content",
+    role: "Clipper & Video Editor",
     foto: "tim/rou.jpg",
-    isi: ["Replace this paragraph."],
+    isi: ["I focus on transforming ideas and moments into concise, engaging content. My goal is to create clips that communicate clearly, capture attention, and leave a lasting impression.."],
   },
   {
     nama: "Shintya",
-    role: "Customer Service",
+    role: "Packaging & Customer Service",
     foto: "tim/shintya.jpg",
-    isi: ["Replace this paragraph."],
+    isi: ["RI believe professionalism is reflected in the details. I focus on maintaining quality in every process while ensuring every customer interaction is handled with care and professionalism."],
   },
   {
     nama: "Junita",
     role: "Content creator & Social Media",
     foto: "tim/junita.jpg",
-    isi: ["Replace this paragraph."],
+    isi: ["I focus on creating engaging content that communicates ideas clearly and naturally. Through social media, I aim to build meaningful connections and maintain an authentic presence."],
   },
 ];
 
 /* Ajakan bergabung — section penutup sebelum footer */
 const KARIR = {
-  judul: "Looking for a bigger challenge and room to grow?",
-  isi: "We hire year round across marketing, creative, warehouse and IT.",
-  tombol: "Send an application",
-  url: "mailto:halo@monteragroup.id?subject=Lamaran%20-%20Posisi", // GANTI
+  judul: "We Are Hiring!",
+  isi: "Wanna Join?",
+  tombol: "See open roles ↓",
+  url: "https://glints.com/id/companies/prepare/2b5f5bc0-34bd-4ac9-93b2-bb44ecc6ed6e",
   kota: "Tangerang, just west of Jakarta.",
 };
 
@@ -501,7 +500,7 @@ export default function App() {
           <Reveal as="h2">{KARIR.judul}</Reveal>
           <Reveal as="p" delay={90}>{KARIR.isi}</Reveal>
           <Reveal delay={160}>
-            <a className="karir-btn" href={KARIR.url}>{KARIR.tombol}</a>
+            <a className="karir-btn" href={KARIR.url} target="_blank" rel="noopener noreferrer">{KARIR.tombol}</a>
             <div className="karir-kota">{KARIR.kota}</div>
           </Reveal>
         </div>

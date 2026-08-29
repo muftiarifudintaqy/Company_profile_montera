@@ -546,7 +546,7 @@ section { scroll-margin-top: 84px; }
 /* ---------- kegiatan ---------- */
 .events {
   background-color: var(--amber);
-   background-image: linear-gradient(165deg, rgba(174,184,242,.9), rgba(124,138,232,.9) 45%, rgba(74,91,212,.93)), var(--bg-events);
+     background-image: linear-gradient(165deg, rgba(174,184,242,.72), rgba(124,138,232,.7) 45%, rgba(74,91,212,.75)), var(--bg-events);
   background-size: cover, cover;
   background-position: center, center;
   padding-bottom: clamp(64px, 9vw, 116px);
@@ -569,7 +569,7 @@ section { scroll-margin-top: 84px; }
 .event h4 { font-size: clamp(19px, 2.4vw, 28px); color: #3A4BC0; margin-bottom: 12px; }
 .event p { color: #4A4238; font-size: 15px; }
 .thumb {
-  aspect-ratio: 16 / 10;
+      height: 230px;
   border-radius: 14px;
     background: linear-gradient(140deg, #E2E6FA, #BEC7F2);
   display: grid;
@@ -580,7 +580,8 @@ section { scroll-margin-top: 84px; }
     color: #4F5EA8;
   overflow: hidden;
 }
-.thumb img { width: 100%; height: 100%; object-fit: cover; }
+.thumb:has(img) { background: none; }
+.thumb img { width: auto; height: 100%; max-width: 100%; object-fit: cover; }
 
 /* ---------- galeri ---------- */
 .gallery { background: #fff; padding: clamp(64px, 9vw, 120px) 0; text-align: center; }
@@ -789,11 +790,9 @@ section { scroll-margin-top: 84px; }
 @media (min-width: 1025px) {
   .hero,
   .story,
-  .panel-quote,
   .culture,
   .events,
-  .people,
-  .karir {
+  .people {
     background-attachment: scroll, fixed;
   }
 }
