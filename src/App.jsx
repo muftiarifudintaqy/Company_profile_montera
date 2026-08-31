@@ -305,9 +305,10 @@ export default function App() {
           <Logo src={CO.logo} className="mark" alt={CO.legal} />
           <div className="wordmark">{CO.nama}</div>
           <div className="mark-sub">{CO.tagline}</div>
-          <h1>
-            {CO.heroLine} <b>{CO.heroLineBold}</b>
-          </h1>
+         <h1>
+  <span className="hero-l1">{CO.heroLine}</span>
+  <b className="hero-l2">{CO.heroLineBold}</b>
+</h1>
           <p className="hero-note">{CO.heroNote}</p>
         </div>
        {/*<div className="scroll-hint"><i /></div>*/}

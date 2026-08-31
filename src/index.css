@@ -194,6 +194,8 @@ section { scroll-margin-top: 84px; }
   margin: 0 auto;
 }
 .hero h1 b { font-weight: 700; }
+.hero-l1, .hero-l2 { display: block; }
+.hero-l2 { margin-top: .12em; }
 .hero-note {
   margin: 22px auto 0;
   font-size: clamp(14px, 1.4vw, 16.5px);
