@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import Lenis from "lenis";
 
 /* ==================================================================
    TEMPAT EDIT — semua teks & data ada di blok ini.
@@ -230,18 +231,66 @@ function Ikon({ nama }) {
   };
   return <svg width="34" height="34" viewBox="0 0 24 24">{isi[nama]}</svg>;
 }
+/* Ikon kontak di footer */
+function IkonKontak({ nama }) {
+  const isi = {
+    mail: <path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11Zm1.8.5 7.2 5.4L19.2 7H4.8Z" />,
+    wa: <path d="M12 2a10 10 0 0 0-8.7 15L2 22l5.2-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.6-.1a12 12 0 0 1-4.6-3.1 9.4 9.4 0 0 1-1.8-2.7c-.2-.6-.1-1.3.2-1.8.2-.3.5-.6.8-.7h.6c.2 0 .4 0 .5.3l.8 1.8c0 .2 0 .3-.1.5l-.4.5c-.1.2-.2.3 0 .5a8 8 0 0 0 3.5 2.9c.2.1.4 0 .5-.1l.7-.8c.2-.2.3-.2.5-.1l1.7.9c.2.1.3.2.3.4 0 .2 0 .4-.1.5Z" />,
+    ig: <><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" fill="none" stroke="currentColor" strokeWidth="1.8" /><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="1.8" /><circle cx="17.2" cy="6.8" r="1.2" /></>,
+    pin: <path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z" />,
+  };
+  return (
+    <svg className="ikon-kontak" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      {isi[nama]}
+    </svg>
+  );
+}
 
 const NAV = [
   { t: "About", h: "#about" },
   { t: "Vision", h: "#vision" },
   { t: "Culture", h: "#culture" },
-  { t: "Brands", h: "#brands" },
   { t: "Life at Montera", h: "#life" },
+  { t: "Career", h: "#career" },
 ];
 
 export default function App() {
   const [solid, setSolid] = useState(false);
   const [buka, setBuka] = useState(false);
+    useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const lenis = new Lenis({
+      duration: 1.15,          // makin besar makin "berat" dan mengalir
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      touchMultiplier: 1.6,
+    });
+
+    let id;
+    const jalan = (waktu) => {
+      lenis.raf(waktu);
+      id = requestAnimationFrame(jalan);
+    };
+    id = requestAnimationFrame(jalan);
+
+    // klik menu tetap meluncur halus
+    const klik = (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const target = document.querySelector(a.getAttribute("href"));
+      if (!target) return;
+      e.preventDefault();
+      lenis.scrollTo(target, { offset: -84 });
+    };
+    document.addEventListener("click", klik);
+
+    return () => {
+      cancelAnimationFrame(id);
+      document.removeEventListener("click", klik);
+      lenis.destroy();
+    };
+  }, []);
   const strip = useRef(null);
 
   useEffect(() => {
@@ -290,7 +339,7 @@ export default function App() {
             {NAV.map((n) => (
               <a key={n.h} href={n.h} onClick={() => setBuka(false)}>{n.t}</a>
             ))}
-            <a className="nav-cta" href="#brand" onClick={() => setBuka(false)}>Our brands</a>
+            <a className="nav-cta" href="#brands" onClick={() => setBuka(false)}>Our brands</a>
           </nav>
 
           <button className="burger" onClick={() => setBuka((v) => !v)} aria-label="Menu" aria-expanded={buka}>
@@ -329,8 +378,9 @@ export default function App() {
 
         <div className="wrap story-head">
           <Reveal as="h2">
-            Welcome to <b>{CO.nama}</b> — one family
-          </Reveal>
+  <span className="satukan">Welcome to <b>{CO.nama}</b></span>{" "}
+  <span className="satukan">— one family</span>
+</Reveal>
           <Reveal as="p" delay={120}>
             Building something that lasts, not something that trends
           </Reveal>
@@ -496,7 +546,7 @@ export default function App() {
       </section>
 
       {/* ---------------- KARIR ---------------- */}
-      <section className="karir">
+      <section className="karir" id="career">
         <div className="wrap karir-in">
           <Reveal as="h2">{KARIR.judul}</Reveal>
           <Reveal as="p" delay={90}>{KARIR.isi}</Reveal>
@@ -525,19 +575,17 @@ export default function App() {
             </div>
             <div>
               <h5>Contact</h5>
-              <ul>
-                <li><a href={`mailto:${CO.email}`}>{CO.email}</a></li>
-                <li><a href={CO.wa} target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-                <li><a href={CO.ig} target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                <li><a href={CO.maps} target="_blank" rel="noopener noreferrer">{CO.alamat}</a></li>
-              </ul>
+<ul className="kontak">
+  <li><a href={`mailto:${CO.email}`}><IkonKontak nama="mail" />{CO.email}</a></li>
+  <li><a href={CO.wa} target="_blank" rel="noopener noreferrer"><IkonKontak nama="wa" />WhatsApp</a></li>
+  <li><a href={CO.ig} target="_blank" rel="noopener noreferrer"><IkonKontak nama="ig" />Instagram</a></li>
+  <li><a href={CO.maps} target="_blank" rel="noopener noreferrer"><IkonKontak nama="pin" />{CO.alamat}</a></li>
+</ul>
             </div>
           </div>
           <div className="foot-bottom">
-            <span>{CO.legal}</span>
-            <span>{CO.kota}</span>
-            <span>© {new Date().getFullYear()}</span>
-          </div>
+  © {new Date().getFullYear()} {CO.legal}. All rights reserved. · {CO.kota}
+</div>
         </div>
       </footer>
     </>
