@@ -310,7 +310,7 @@ export default function App() {
           </h1>
           <p className="hero-note">{CO.heroNote}</p>
         </div>
-        <div className="scroll-hint"><span>Scroll</span><i /></div>
+       {/*<div className="scroll-hint"><i /></div>*/}
         <Wave className="hero-wave" fill="var(--violet-deep)" />
       </section>
 
