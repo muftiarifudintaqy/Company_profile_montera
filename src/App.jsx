@@ -389,7 +389,7 @@ export default function App() {
         <div className="wrap">
           <div className="panel">
             <Reveal className="panel-about">
-             <div className="thumb thumb-team"><img src="/event/about.jpg" alt="Montera team" /></div>
+             <div className="thumb-team"><img src="/event/about.jpg" alt="Montera team" /></div>
               <div>
                 <div className="eyebrow">About us</div>
                 <h3>Founded in {CO.berdiri}</h3>
