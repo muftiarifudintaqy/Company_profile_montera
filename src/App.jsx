@@ -124,7 +124,6 @@ const PEOPLE = [
     isi: ["I focus on creating engaging content that communicates ideas clearly and naturally. Through social media, I aim to build meaningful connections and maintain an authentic presence."],
   },
 ];
-
 /* Ajakan bergabung — section penutup sebelum footer */
 const KARIR = {
   judul: "We Are Hiring!",
