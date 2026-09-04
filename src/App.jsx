@@ -118,18 +118,6 @@ const PEOPLE = [
     isi: ["I focus on creating meaningful connections through effective communication and thoughtful strategies. Understanding our audience allows us to communicate with clarity and purpose."],
   },
   {
-    nama: "Rou",
-    role: "Clipper & Video Editor",
-    foto: "tim/rou.jpg",
-    isi: ["I focus on transforming ideas and moments into concise, engaging content. My goal is to create clips that communicate clearly, capture attention, and leave a lasting impression.."],
-  },
-  {
-    nama: "Shintya",
-    role: "Packaging & Customer Service",
-    foto: "tim/shintya.jpg",
-    isi: ["RI believe professionalism is reflected in the details. I focus on maintaining quality in every process while ensuring every customer interaction is handled with care and professionalism."],
-  },
-  {
     nama: "Junita",
     role: "Content creator & Social Media",
     foto: "tim/junita.jpg",
